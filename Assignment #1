@@ -9,3 +9,105 @@ the numbers, and the average of all the numbers.
 
 
 Answer:
+
+
+import java.util.Scanner;
+
+  
+
+public class Assignment1 
+
+{
+
+      public static void main(String[] args) 
+
+      {
+
+        boolean truckOn = true;
+
+        Scanner input = new Scanner(System.in);
+
+        double denverPlayer = 0.0;
+
+        int numberCount = 0;
+
+        double numberTotal = 0.0;
+
+  
+
+        System.out.println("This program will ask you to enter in the number of any Denver Bronco player.");
+
+        System.out.println("It continues until you enter an asterisk (*).  Then it will display information");
+
+        System.out.println("on the numbers entered for viewing purposes.\n");
+
+  
+
+        while (truckOn) 
+
+        {
+
+            System.out.print("Enter a Denver Bronco Player Number: ");
+
+  
+
+            if (input.hasNextDouble())
+
+                  if (input.next().equals("18"))
+
+                  {
+
+                        System.out.println("\nLooks like we have a Peyton Manning fan!\n");
+
+                        denverPlayer = input.nextDouble();
+
+                    numberCount++;
+
+                    numberTotal += denverPlayer;
+
+                  }
+
+                  else
+
+                  {
+
+                denverPlayer = input.nextDouble();
+
+                numberCount++;
+
+                numberTotal += denverPlayer;
+
+                  }
+
+                  
+
+            else if (input.next().equals("*")) 
+
+            {
+
+                truckOn = false;
+
+                System.out.println("\nYou entered " + numberCount + " numbers.");
+
+                System.out.println("Total: " + numberTotal);
+
+                System.out.println("Average: " + (numberTotal / numberCount));
+
+            }
+
+            
+
+            else 
+
+            {
+
+                System.out.println("\n This is an invalid input.");
+
+            }
+
+        }
+
+    }
+
+}
+
