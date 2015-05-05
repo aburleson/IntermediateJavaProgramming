@@ -1,0 +1,60 @@
+Your assignment for this lesson is to write a GUI program that will use a button to count down from five to zero. 
+When it reaches zero, it should display a label indicating the end of the count. Each click should decrease the number by 
+one. For example, when the program starts the button will say "Five" or "5." After the first click, it will say "Four" or 
+"4," and so on. When it gets to zero, the button should be replaced by a label with a message in it. The text in the label 
+can say anything you like. 
+
+  
+
+  
+
+  
+
+import javax.swing.JOptionPane;
+
+  
+
+public class GUIcountdown 
+
+
+{ 
+
+    public static void main(String[] args)
+
+
+    {
+
+
+        int selection;
+
+        boolean isYes;
+
+        selection = JOptionPane.showConfirmDialog(null, 
+
+            "Starting the Countdown... Please Click:");
+
+        isYes = (selection == JOptionPane.YES_OPTION);
+
+        if (isYes) {
+
+            JOptionPane.showMessageDialog(null, "Five (5)");
+
+            JOptionPane.showMessageDialog(null, "Four (4)");
+
+            JOptionPane.showMessageDialog(null, "Three (3)");
+
+            JOptionPane.showMessageDialog(null, "Two (2)");
+
+            JOptionPane.showMessageDialog(null, "One (1)");
+
+            JOptionPane.showMessageDialog(null, "This is the End!");
+
+                        } else {
+
+            JOptionPane.showMessageDialog(null, "Not going to do the countdown!");
+
+        }
+
+    }
+
+}
