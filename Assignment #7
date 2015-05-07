@@ -1,0 +1,490 @@
+
+This lesson's assignment is to add at least two more menus to the window we have been working on. For example, 
+you could add an Edit menu with Copy, Cut, Paste, Find, Replace or whatever other items you think are appropriate, 
+and a Help menu with an About . . . item that displays information about your application. Or you can make up your own 
+menus and items. Experiment with menus, items, inner class listeners, mnemonics, and accelerators until you are comfortable 
+designing and using them.Let me know what questions you come up with on the assignment. I'll see you in the Discussion Area.
+
+  
+
+  
+
+import java.awt.*;
+
+import java.awt.event.*;
+
+import javax.swing.*;
+
+  
+
+public class GUIMenu2
+
+{
+
+    private JFrame frame;    
+
+    
+
+    public static void main (String[] args) 
+
+    {
+
+        GUIMenu2 gui = new GUIMenu2();
+
+        gui.start();
+
+    }    public void start() 
+
+    {
+
+        frame = new JFrame("Take Your Pick!");
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Container contentPane = frame.getContentPane();
+
+        
+
+        makeMenus();        
+
+        frame.setSize(300, 300);
+
+        frame.setVisible(true);
+
+    }
+
+    
+
+    private void makeMenus()
+
+    {
+
+    JMenuBar menuBar;
+
+    JMenu menu;
+
+    JMenuItem menuItem;
+
+    
+
+    menuBar = new JMenuBar();
+
+    frame.setJMenuBar(menuBar);
+
+    
+
+    // set up the File menu
+
+    menu = new JMenu("File");
+
+    menuBar.add(menu);
+
+    
+
+    // add File menu items
+
+    menuItem = new JMenuItem("New");
+
+    menuItem.addActionListener(new newListener());
+
+    menu.add(menuItem);
+
+    menuItem = new JMenuItem("Open...");
+
+    menuItem.addActionListener(new openListener());
+
+    menu.add(menuItem);
+
+    menuItem = new JMenuItem("Save");
+
+    menuItem.addActionListener(new saveListener());
+
+    menu.add(menuItem);
+
+    menuItem = new JMenuItem("Save As...");
+
+    menuItem.addActionListener(new saveAsListener());
+
+    menu.add(menuItem);
+
+    menu.addSeparator();
+
+    menuItem = new JMenuItem("Exit");
+
+    menuItem.addActionListener(new exitListener());
+
+    menu.add(menuItem);
+
+    
+
+    // set up the Edit menu
+
+    menu = new JMenu("Edit");
+
+    menuBar.add(menu);
+
+    
+
+    // add Edit menu items
+
+    menuItem = new JMenuItem("Copy");
+
+    menuItem.addActionListener(new copyListener());
+
+    menu.add(menuItem);
+
+    menuItem = new JMenuItem("Paste");
+
+    menuItem.addActionListener(new pasteListener());
+
+    menu.add(menuItem);
+
+    menuItem = new JMenuItem("Import");
+
+    menuItem.addActionListener(new importListener());
+
+    menu.add(menuItem);
+
+    
+
+    // set up the View menu
+
+    menu = new JMenu("View");
+
+    menuBar.add(menu);
+
+    
+
+    // add View menu items
+
+    menuItem = new JMenuItem("Set View");
+
+    menuItem.addActionListener(new setListener());
+
+    menu.add(menuItem);
+
+    menuItem = new JMenuItem("Zoom");
+
+    menuItem.addActionListener(new zoomListener());
+
+    menu.add(menuItem);
+
+    
+
+    // set up the Football Fan menu
+
+    menu = new JMenu("FOOTBALL");
+
+    menuBar.add(menu);
+
+    
+
+    // add Football Fan menu items
+
+    menuItem = new JMenuItem("Denver Broncos");
+
+    menuItem.addActionListener(new denverListener());
+
+    menu.add(menuItem);
+
+    menu.add(menuItem);
+
+    menu.addSeparator();
+
+    menuItem = new JMenuItem("Baltimore Ravens");
+
+    menuItem.addActionListener(new baltimoreListener());
+
+    menu.add(menuItem);
+
+    menuItem = new JMenuItem("Indianapolis Colts");
+
+    menuItem.addActionListener(new indianapolisListener());
+
+    menu.add(menuItem);
+
+    
+
+    }
+
+    
+
+    private class newListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "The  File > New  menu option was clicked", 
+
+    "Menu Item Click", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+    
+
+    private class openListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "The  File > Open...  menu option was clicked", 
+
+    "Menu Item Click", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+    
+
+    private class saveListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "The  File > Save  menu option was clicked", 
+
+    "Menu Item Click", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+    
+
+    private class saveAsListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "The  File > Save As...  menu option was clicked", 
+
+    "Menu Item Click", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+    
+
+    private class exitListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    System.exit(0);
+
+    }
+
+    }
+
+    
+
+    private class copyListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "The  Edit > Copy menu option was clicked", 
+
+    "Menu Item Click", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+    
+
+    private class pasteListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "The  Edit > Paste menu option was clicked", 
+
+    "Menu Item Click", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+    
+
+    private class importListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "The  Edit > Import menu option was clicked", 
+
+    "Menu Item Click", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+    
+
+    private class setListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "The  View > Set menu option was clicked", 
+
+    "Menu Item Click", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+   
+
+    private class zoomListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "The  View > Zoom menu option was clicked", 
+
+    "Menu Item Click", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+    
+
+    private class denverListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "This is the ONLY acceptable choice! Good job!", 
+
+    "Winner!", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+    
+
+    private class baltimoreListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "Boooooooo!!!!", 
+
+    "Loser Choice", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+    
+
+    private class indianapolisListener implements ActionListener
+
+    {
+
+    public void actionPerformed(ActionEvent e)
+
+    {
+
+    JOptionPane.showMessageDialog(frame, 
+
+    "You want the other Manning team.... just sayin'...", 
+
+    "Loser Choice", 
+
+    JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    }
+
+}
